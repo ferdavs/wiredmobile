@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="Wired.ItemDetailPage">
+    <ScrollView>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="{Binding Item.Title}" FontSize="Large" />
+            <Image Source="{Binding Item.ImageUrl}" Aspect="AspectFill" />
+            <StackLayout Orientation="Horizontal">
+                <Label Text="{Binding Author}" FontSize="12" FontAttributes="Bold" />
+                <Label Text="{Binding PubDate}" FontSize="10" />
+            </StackLayout>
+            <!--        <Label Text="{Binding Item.Text}" FontSize="Medium" />-->
+            <!--        <Label Text="{Binding Item.Description}" FontSize="Small" />-->
+            <WebView Source="{Binding Item.HtmlContent}" x:Name="webView" VerticalOptions="FillAndExpand" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
