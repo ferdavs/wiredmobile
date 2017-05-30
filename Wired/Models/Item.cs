@@ -65,11 +65,11 @@ namespace Wired
             set { SetProperty(ref imageUrl, value); }
         }
 
-        [JsonIgnore]
+        string content;
         public string Content
         {
-            get;
-            set;
+            get { return content; }
+            set { SetProperty(ref content, value); }
         }
     }
 }

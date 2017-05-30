@@ -12,7 +12,7 @@ using Newtonsoft.Json;
 namespace Wired.Helpers
 {
     // taken from https://forums.xamarin.com/discussion/comment/52352/#Comment_52352
-    public class RssReader
+    public class ApiReader
     {
         private static IEnumerable<Item> LoadFromUrlAsync(string url)
         {
@@ -62,7 +62,7 @@ namespace Wired.Helpers
             var body = new StringContent(url);
             var response = client.PostAsync(uri, body).Result;
             var s = await response.Content.ReadAsStringAsync();
-            return (JsonConvert.DeserializeObject<List<Item>>(s));
+            return JsonConvert.DeserializeObject<List<Item>>(s);
         }
 
         private static WebClient Browser()

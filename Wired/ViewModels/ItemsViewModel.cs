@@ -13,7 +13,7 @@ namespace Wired
 
         public ItemsViewModel()
         {
-            Title = "W I R E D";
+            Title = "W I R E D - " + Settings.AppSettings.GetValueOrDefault("category", WiredPages.TopStories.ToString());
             Items = new ObservableRangeCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
         }
@@ -36,6 +36,8 @@ namespace Wired
                 //Items.Clear();
                 //var items = await DataStore.GetLatestAsync();
                 Items.ReplaceRange(await DataStore.GetLatestAsync(catUrl));
+                Title = "W I R E D - " + Settings.AppSettings.GetValueOrDefault("category", WiredPages.TopStories.ToString());
+
                 //Items.ReplaceRange(items);
             }
             catch (Exception ex)

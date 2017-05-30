@@ -23,7 +23,7 @@ namespace Wired
             var action = await DisplayActionSheet("Categories", "Cancel", null,
                                                   "TopStories",
                                                   "Bussiness",
-                                                "Desing",
+                                                //"Design",
                                                 "Culture",
                                                 "Gear",
                                                 "Reviews",
@@ -33,9 +33,13 @@ namespace Wired
                                                 "Transportation",
                                                 "Photo");
 
+            await Task.Run(async () => await SelectCategory(action)).ConfigureAwait(false);
+        }
+
+        async Task SelectCategory(string action)
+        {
             Settings.AppSettings.AddOrUpdateValue("category", action);
 
-            //TODO get rid if this
             switch (action)
             {
                 case "TopStories":
@@ -43,13 +47,13 @@ namespace Wired
                     await viewModel.ExecuteLoadItemsCommand(WiredPages.TopStories.GetString());
                     break;
                 case "Bussiness":
-                    Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.TopStories.GetString());
+                    Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.Bussiness.GetString());
                     await viewModel.ExecuteLoadItemsCommand(WiredPages.Bussiness.GetString());
                     break;
-                case "Desing":
-                    Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.TopStories.GetString());
-                    await viewModel.ExecuteLoadItemsCommand(WiredPages.Desing.GetString());
-                    break;
+                //case "Design":
+                //Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.Design.GetString());
+                //await viewModel.ExecuteLoadItemsCommand(WiredPages.Design.GetString());
+                //break;
                 case "Culture":
                     Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.Culture.GetString());
                     await viewModel.ExecuteLoadItemsCommand(WiredPages.Culture.GetString());
@@ -84,6 +88,8 @@ namespace Wired
                     break;
                 default: return;
             }
+
+            return;
         }
 
         async void OnItemSelected(object sender, SelectedItemChangedEventArgs args)
@@ -98,12 +104,23 @@ namespace Wired
             ItemsListView.SelectedItem = null;
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
+            //IsBusy = true;
+            await Task.Run(() =>
+            {
+                if (viewModel.Items.Count == 0)
+                    viewModel.LoadItemsCommand.Execute(null);
+            }).ConfigureAwait(false);
+        }
 
-            if (viewModel.Items.Count == 0)
-                viewModel.LoadItemsCommand.Execute(null);
+        protected async Task WaitAndExecute(int milisec, Action actionToExecute)
+        {
+            await Task.Delay(milisec);
+
+            actionToExecute();
+            //IsBusy = false;
         }
 
     }

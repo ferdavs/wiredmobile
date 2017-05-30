@@ -20,8 +20,8 @@ namespace Wired.Helpers
         [Description("https://www.wired.com/category/business/feed/")]
         Bussiness,
 
-        [Description("https://www.wired.com/category/design/feed/")]
-        Desing,
+        //[Description("https://www.wired.com/category/design/feed/")]
+        //Design,
 
         [Description("https://www.wired.com/category/culture/feed/")]
         Culture,

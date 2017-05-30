@@ -14,8 +14,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\Settings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\MessagingCenterAlert.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Item.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\INewsSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\BaseViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemDetailViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModels\ItemsViewModel.cs" />
@@ -28,10 +26,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Services\WiredSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Helpers\RssReader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\DynamicXml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\WiredPages.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\INewsSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\MockDataSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\WiredSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\ApiReader.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Views\ItemDetailPage.xaml" />

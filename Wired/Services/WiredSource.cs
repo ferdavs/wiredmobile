@@ -10,12 +10,12 @@ namespace Wired.Services
         public Task<IEnumerable<Item>> GetLatestAsync()
         {
             var url = Settings.AppSettings.GetValueOrDefault("categoryUrl", WiredPages.TopStories.GetString());
-            return Task.FromResult(RssReader.GetFromApi(url).Result);
+            return Task.FromResult(ApiReader.GetFromApi(url).Result);
         }
 
         public Task<IEnumerable<Item>> GetLatestAsync(string category)
         {
-            return Task.FromResult(RssReader.GetFromApi(category).Result);
+            return Task.FromResult(ApiReader.GetFromApi(category).Result);
         }
     }
 }

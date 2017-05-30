@@ -8,7 +8,6 @@ namespace Wired
     public partial class ItemDetailPage : ContentPage
     {
         ItemDetailViewModel viewModel;
-        HtmlWebViewSource HtmlContent { get; set; }
 
         public ItemDetailPage(ItemDetailViewModel viewModel)
         {
@@ -16,10 +15,6 @@ namespace Wired
 
             BindingContext = this.viewModel = viewModel;
 
-            HtmlContent = new HtmlWebViewSource()
-            {
-                Html = @"<html><body>" + viewModel.Item.Content + "</body></html>"
-            };
         }
 
     }
