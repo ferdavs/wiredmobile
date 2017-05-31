@@ -107,7 +107,6 @@ namespace Wired
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            //IsBusy = true;
             await Task.Run(() =>
             {
                 if (viewModel.Items.Count == 0)
@@ -120,7 +119,6 @@ namespace Wired
             await Task.Delay(milisec);
 
             actionToExecute();
-            //IsBusy = false;
         }
 
     }

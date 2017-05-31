@@ -19,7 +19,7 @@
                                 <Image Aspect="AspectFill" Source="{Binding ImageUrl}" />
                                 <StackLayout Orientation="Horizontal" Spacing="0">
                                     <Label Text="{Binding Author}" FontSize="12" FontAttributes="Bold" YAlign="Center" />
-                                    <BoxView HorizontalOptions="FillAndExpand" VerticalOptions="Start"/>
+                                    <BoxView HorizontalOptions="FillAndExpand" HeightRequest="0" VerticalOptions="StartAndExpand"/>
                                     <Label Text="{Binding PubDate}" FontSize="10" YAlign="Center" />
                                 </StackLayout>
                                 <Label Text="{Binding Description}" Style="{DynamicResource ListItemTextStyle}" FontSize="14" />

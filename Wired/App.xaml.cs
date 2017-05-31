@@ -12,11 +12,7 @@ namespace Wired
             InitializeComponent();
             DependencyService.Register<WiredSource>();
 
-            //Settings.AppSettings.AddOrUpdateValue("category", WiredPages.TopStories.ToString());
-            //Settings.AppSettings.AddOrUpdateValue("categoryUrl", WiredPages.TopStories.GetString());
-
             GoToMainPage();
-
         }
 
         public static void GoToMainPage()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-
+using System.Linq;
 namespace Wired
 {
     public partial class ItemDetailPage : ContentPage
